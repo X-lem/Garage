@@ -1,7 +1,39 @@
-﻿body {
-    height: auto;
-    border: 1px solid #00ffff;
+﻿html, body {
+    margin: auto;
+    height: 100%;
     background: #E9EBEE;
+
 }
+
+.Border {
+    height: 5000px;
+}
+
+.addVehiclePanel {
+
+    background-color: rgba(15, 13, 13, 0.75);
+    position: fixed;
+    border-bottom: 1px solid black;
+    /*margin: 2em 5em 5em 0;*/
+    margin: auto;
+    width: 100%;
+    height: 3em;
+
+}
+
+.addVehicleBtn {
+    border: 1px solid #E9EBEE;
+    width: 10em;
+    height: 90%;
+    margin-left: 3em;
+    font-family: 'Bell MT';
+    font-size: xx-large;
+
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
 
 
