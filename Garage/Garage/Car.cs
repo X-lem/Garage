@@ -6,6 +6,8 @@ using System.Web;
 namespace Garage {
     public class Car {
 
+        private static int carID = 0;
+        private int VIN;
         private String Manufacture;
         private String Make;
         private int Year;
@@ -13,10 +15,22 @@ namespace Garage {
         private Array Seating = new Array[6];
 
 
+        static Car() {
+
+            Car c = new Car();
+            carID++;
+            c.VIN = carID;
+        }
+
+
+        public int getVIN() {
+            return VIN;
+        }
+
         public String getManufacture() {
             return Manufacture;
         }
-        public void updateManufacture(String x) {
+        public void setManufacture(String x) {
             Manufacture = x;
         }
 
@@ -24,22 +38,22 @@ namespace Garage {
         public String getMake() {
             return Make;
         }
-        public void updateMake(String x) {
+        public void setMake(String x) {
             Make = x;
         }
 
         public int getYear() {
             return Year;
         }
-        public void updateYear(int x) {
+        public void setYear(int x) {
             Year = x;
         }
 
         public Array getSeating() {
             return Seating;
         }
-        public void updateSeating(Array temp) {
-            Array.Copy(temp, Seating);
+        public void setSeating(Array temp) {
+            Array.Copy(temp, Seating, 6);
         }
 
 
