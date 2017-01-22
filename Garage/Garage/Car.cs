@@ -12,14 +12,13 @@ namespace Garage {
         private String Make;
         private int Year;
         private String Color;
-        private Array Seating = new Array[6];
+        //private string[] Seating = new string[6];
 
 
-        static Car() {
+        public Car() {
 
-            Car c = new Car();
             carID++;
-            c.VIN = carID;
+            VIN = carID;
         }
 
 
@@ -49,12 +48,21 @@ namespace Garage {
             Year = x;
         }
 
-        public Array getSeating() {
-            return Seating;
+        public string getColor() {
+            return Color;
         }
-        public void setSeating(Array temp) {
-            Array.Copy(temp, Seating, 6);
+
+        public void setColor(String x) {
+            Color = x;
         }
+
+
+        //public Array getSeating() {
+        //    return Seating;
+        //}
+        //public void setSeating(Array temp) {
+        //    Array.Copy(temp, Seating, 6);
+        //}
 
 
     }
