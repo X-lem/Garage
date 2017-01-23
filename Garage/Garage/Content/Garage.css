@@ -35,5 +35,10 @@
 }
 
 
+/* Individual Parking Spots*/
+.singleParking {
+    
+    margin-top: 10em;
+    border: 2px solid red;
 
-
+}

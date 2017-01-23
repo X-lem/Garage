@@ -13,7 +13,7 @@ namespace Garage {
         Panel panel;
         TextBox txtBox;
         Button btn;
-        int carsInGarage = 0;
+        int carVin;
         List<Car> garage = new List<Car>();
 
         protected void Page_Load(object sender, EventArgs e) {
@@ -29,8 +29,8 @@ namespace Garage {
             masterPanel.CssClass = "Border";
 
             masterPanel.Controls.Add(AddVehiclePanel());
-            serverForm.Controls.Add(masterPanel);
 
+            serverForm.Controls.Add(masterPanel);
         }
 
         protected Panel AddVehiclePanel() {
@@ -52,6 +52,7 @@ namespace Garage {
 
         void addNewVehicle(Object sender, EventArgs e) {
 
+
             // Obtain list from session
             garage = (List<Car>)Session["garageList"];
 
@@ -61,37 +62,56 @@ namespace Garage {
 
             // Create panel to hold car description
             parkingSpot = new Panel();
-            parkingSpot.ID = "car" + car.getVIN().ToString();
+            parkingSpot.ID = "car" + car.getVIN();
             parkingSpot.CssClass = "singleParking";
 
+            carVin = car.getVIN();
 
             // Create Header to parkingSpot
             parkingSpot.Controls.Add(carHeader());
+            parkingSpot.Controls.Add(carSeating());
 
-
-
-            panel.Controls.Add(txtBox);
-            masterPanel.Controls.Add(txtBox);
-
-            // Add everything to
+            // Add everything to masterPanel
             masterPanel.Controls.Add(parkingSpot);
+            addOldVehicles();
         }
 
         // For newly created cars
-        Panel carHeader() {
+        private Panel carHeader() {
             panel = new Panel();
 
+            txtBox = new TextBox();
+            txtBox.CssClass = "yearClass";
+            txtBox.ID = "year" + carVin;
+            panel.Controls.Add(txtBox);
 
+            txtBox = new TextBox();
+            txtBox.CssClass = "makeClass";
+            txtBox.ID = "make" + carVin;
+            panel.Controls.Add(txtBox);
 
+            txtBox = new TextBox();
+            txtBox.CssClass = "modelClass";
+            txtBox.ID = "model" + carVin;
+            panel.Controls.Add(txtBox);
+            
 
             return panel;
         }
 
+        private Panel carSeating() {
 
-        // For previously created cars
-        Panel carHeader(List<Car> garage) {
-            panel = new Panel();
+            Panel panel = new Panel();
+            panel.CssClass = "seatHolder";
 
+            // Seating
+            // ID_carVin_ArrayIndex
+            for (int i = 0; i < 5; i++) {
+                txtBox = new TextBox();
+                txtBox.CssClass = "seat";
+                txtBox.ID = "seat_" + carVin + "_" + i;
+                panel.Controls.Add(txtBox);
+            }
 
             return panel;
         }
@@ -99,7 +119,10 @@ namespace Garage {
 
         void addOldVehicles() {
 
-            
+
+
+
+            garageForm.Controls.Add(masterPanel);
         }
 
     }

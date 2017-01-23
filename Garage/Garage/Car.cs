@@ -8,8 +8,8 @@ namespace Garage {
 
         private static int carID = 0;
         private int VIN;
-        private String Manufacture;
-        private String Make;
+        private String Make; // Manufacturer
+        private String Model;
         private int Year;
         private String Color;
         //private string[] Seating = new string[6];
@@ -26,19 +26,19 @@ namespace Garage {
             return VIN;
         }
 
-        public String getManufacture() {
-            return Manufacture;
-        }
-        public void setManufacture(String x) {
-            Manufacture = x;
-        }
-
-
         public String getMake() {
             return Make;
         }
         public void setMake(String x) {
             Make = x;
+        }
+
+
+        public String getModel() {
+            return Model;
+        }
+        public void setModel(String x) {
+            Model = x;
         }
 
         public int getYear() {
